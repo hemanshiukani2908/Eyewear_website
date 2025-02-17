@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block body %}
+  <!-- Breadcrumb Begin -->
+
+  <!-- Breadcrumb End -->
+  <!-- Section: Design Block -->
+  <section class="header-height-auth">
+    <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color:lightgray;margin-bottom: 10px;padding-bottom: 7rem!important;padding-top: 4rem!important;">
+      <div class="container">
+        <div class="row gx-lg-5 align-items-center">
+          <div class="col-lg-6 mb-5 mb-lg-0" style="margin:auto">
+            <div class="card" style="box-shadow: 0px 10px 10px rgb(99 98 98 / 37%);  backdrop-filter: blur(30px);background: hsla(0, 0%, 100%, 0.55);">
+              <div class="card-body py-5 px-md-5" style="margin-top:0px;padding-bottom: 1rem!important;padding-top: 2rem!important;line-height:1.0;">
+                <h3 style="padding-bottom:35px; font-weight: bold;">Login</h3>
+                <form method="post" action="">
+                  {% csrf_token %}
+                    {% for message in messages %}
+                      <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                        <strong>{{message}}</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" style="padding-top: 11px;
+                        padding-bottom: 20px;"></button>
+                      </div>
+                    {% endfor %}
+                  
+                  <!-- Email input -->
+                  <div class="form-outline mb-4">
+                    <input type="email" id="form3Example3" class="form-control" name="email" placeholder="Email address" required />
+                    <label class="form-label" for="form3Example3"></label>
+                  </div>
+
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    <input type="password" id="form3Example4" class="form-control" name="password" placeholder="Password" required />
+                    <label class="form-label" for="form3Example4"></label>
+                  </div>
+
+                  <!-- Submit button -->
+                  <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color: #232124; color:white;line-height:2;">Login</button>
+
+                  <!-- Register buttons -->
+                  <div class="text-center">
+                    <p style="color:black;">Don't have an account? &nbsp;<a href="/auth/signup"style="color:#ca1515;font-weight: 600;">SignUp</a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  </section>
+  <!-- Section: Design Block -->
+{% endblock %}

@@ -1,0 +1,282 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+   Shop 
+{% endblock title %}
+
+{% block body %}
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option header-height">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="/"><i class="fa fa-home"></i> Home</a>
+                    <span>Product</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Shop Section Begin -->
+<section class="shop spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <div class="shop__sidebar">
+                    <div class="sidebar__categories">
+                        <div class="section-title">
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="categories__accordion">
+                            <div class="accordion" id="accordionExample">
+                                <div class="card">
+                                    <div class="card-heading active">
+                                        <a data-toggle="collapse" data-target="#collapseOne">Women</a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li><a href="?category=Women&subcategory=Sunglasses">Sunglasses</a></li>
+                                                <li><a href="?category=Women&subcategory=Computer glasses">Computer glasses</a></li>
+                                                <li><a href="?category=Women&subcategory=Frames">Frames</a></li>
+                                                <li><a href="?category=Women&subcategory=Lenses">Lenses</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseTwo">Men</a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li><a href="?category=Men&subcategory=Sunglasses">Sunglasses</a></li>
+                                                <li><a href="?category=Men&subcategory=Computer glasses">Computer glasses</a></li>
+                                                <li><a href="?category=Men&subcategory=Frames">Frames</a></li>
+                                                <li><a href="?category=Men&subcategory=Lenses">Lenses</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseThree">Kid</a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <ul>
+                                                <li><a href="?category=kid&subcategory=Sunglasses">Sunglasses</a></li>
+                                                <li><a href="?category=kid&subcategory=Computer glasses">Computer glasses</a></li>
+                                                <li><a href="?category=Kid&subcategory=Frames">Frames</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% comment %} <div class="sidebar__filter">
+                        <div class="section-title">
+                            <h4>Shop by price</h4>
+                        </div>
+                        <div class="filter-range-wrap">
+                            <div class="price-range ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content"
+                            data-min="33" data-max="99"></div>
+                            <div class="range-slider">
+                                <div class="price-input">
+                                    <p>Price:</p>
+                                    <input type="text" id="minamount">
+                                    <input type="text" id="maxamount">
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">Filter</a>
+                    </div>
+                    <div class="sidebar__sizes">
+                        <div class="section-title">
+                            <h4>Shop by size</h4>
+                        </div>
+                        <div class="size__list">
+                            <label for="xxs">
+                                xxs
+                                <input type="checkbox" id="xxs">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="xs">
+                                xs
+                                <input type="checkbox" id="xs">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="xss">
+                                xs-s
+                                <input type="checkbox" id="xss">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="s">
+                                s
+                                <input type="checkbox" id="s">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="m">
+                                m
+                                <input type="checkbox" id="m">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="ml">
+                                m-l
+                                <input type="checkbox" id="ml">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="l">
+                                l
+                                <input type="checkbox" id="l">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="xl">
+                                xl
+                                <input type="checkbox" id="xl">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="sidebar__color">
+                        <div class="section-title">
+                            <h4>Shop by colors</h4>
+                        </div>
+                        <div class="size__list color__list">
+                            <label for="black">
+                                Black
+                                <input type="checkbox" id="black" value="black">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="whites">
+                                White
+                                <input type="checkbox" id="whites">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="reds">
+                                Red
+                                <input type="checkbox" id="reds">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="greys">
+                                Grey
+                                <input type="checkbox" id="greys">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="blues">
+                                Blue
+                                <input type="checkbox" id="blues">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="beige">
+                                Beige Tone
+                                <input type="checkbox" id="beige">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="greens">
+                                Green
+                                <input type="checkbox" id="greens">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label for="yellows">
+                                Yellow
+                                <input type="checkbox" id="yellows">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-9">
+                <div class="row">
+                    {% for product in products%}
+                    <div class="col-lg-4 col-md-6">
+                        <div class="product__item">
+                            <div class="product__item__pic set-bg" data-setbg="{{product.image1}}">
+                                <ul class="product__hover">
+                                    <li><a href="{{product.image1}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                    <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                                    <li>
+                                        <form id="product_post{{product.id}}" method="POST" action="/additem-to-cart" >
+                                            {% csrf_token %}
+                                                <input type="hidden" name="prodid" value={{product.id}} />
+                                                <a href="#" onclick="event.preventDefault(); document.getElementById('product_post{{product.id}}').submit();">  
+                                                    <span class="icon_bag_alt"></span>
+                                                </a>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="product__item__text">
+                                <div class="product-brand-name"> 
+                                    <h6 style="font-size:15px;font-weight: 600;line-height: 1.5;">{{product.brand}}</h6>
+                                    <h6 class="product-product"><a href="product/{{product.id}}">{{product.product_name}} </a></h6>
+                                  </div>
+                                  <div class="product__price">₹{{product.sell_price}} <del>₹{{product.og_price}}</del><div class="discount-product">({{product.discount}}% OFF)</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="col-lg-12 text-center">
+                        <div class="pagination__option">
+                            {% if products.has_previous %}
+                                    {% if urlcategoryname == temp %}
+                                         <a href="?page={{products.previous_page_number}}"><i class="fa fa-angle-left"></i></a>
+                                    {% elif urlcategoryname != temp and urlsubcategoryname != temp%}
+                                         <a href="?category={{urlcategoryname}}&subcategory={{urlsubcategoryname}}&page={{products.previous_page_number}}"><i class="fa fa-angle-left"></i></a>
+                                    {% else %}
+                                        <a href="?category={{urlcategoryname}}&page={{products.previous_page_number}}"><i class="fa fa-angle-left"></i></a>
+                                    {% endif %}
+                                
+                            {% endif %}
+
+                            {% for i in paginator.page_range %}
+                                {% if products.number == i %}
+                                    {% if urlcategoryname == temp %}
+                                        <a href="?page={{i}}">{{ i }}</a>
+                                    {% elif urlcategoryname != temp and urlsubcategoryname != temp%}
+                                        <a href="?category={{urlcategoryname}}&subcategory={{urlsubcategoryname}}&page={{i}}">{{ i }}</a>
+                                    {% else %}
+                                        <a href="?category={{urlcategoryname}}&page={{i}}">{{ i }}</a>
+                                    {% endif %}
+                                {% else %}
+                                    {% if urlcategoryname == temp  %}
+                                        <a href="?page={{i}}">{{ i }}</a>
+                                    {% elif urlcategoryname != temp and urlsubcategoryname != temp%}
+                                        <a href="?category={{urlcategoryname}}&subcategory={{urlsubcategoryname}}&page={{i}}">{{ i }}</a>
+                                    {% else %}
+                                        <a href="?category={{urlcategoryname}}&page={{i}}">{{ i }}</a>
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}    
+                           
+                            {% if products.has_next %}
+                                    {% if urlcategoryname == temp %}
+                                         <a href="?page={{products.next_page_number}}"><i class="fa fa-angle-right"></i></a>
+                                    {% elif urlcategoryname != temp and urlsubcategoryname != temp%}
+                                         <a href="?category={{urlcategoryname}}&subcategory={{urlsubcategoryname}}&page={{products.next_page_number}}"><i class="fa fa-angle-right"></i></a>
+                                    {% else %}
+                                        <a href="?category={{urlcategoryname}}&page={{products.next_page_number}}"><i class="fa fa-angle-right"></i></a>
+                                    {% endif %}
+                            {% endif %}
+                           
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shop Section End -->
+
+    
+{% endblock body %}
+    
+    

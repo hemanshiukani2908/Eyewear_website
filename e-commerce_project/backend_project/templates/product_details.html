@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    product_detail
+{% endblock title %}
+
+
+{% block body %}
+
+<!-- Breadcrumb Begin -->
+<div class="breadcrumb-option header-height">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb__links">
+                    <a href="/"><i class="fa fa-home"></i> Home</a>
+                    <a href="/product">All product</a>
+                    <a href="/product?category={{product.category.category_name}}">{{product.category.category_name}}</a>
+                    <span>{{product.subcategory.subcategory_name }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Product Details Section Begin -->
+    <section class="product-details spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product__details__pic">
+                        <div class="product__details__pic__left product__thumb nice-scroll">
+                            <a class="pt active" href="#product-1"style="border:0.5px solid #deddd8">
+                                <img src="{{product.image1}}" alt="">
+                            </a>
+                            <a class="pt" href="#product-2"style="border:0.5px solid #deddd8">
+                                <img src="{{product.image2}}" alt="">
+                            </a>
+                            <a class="pt" href="#product-3"style="border:0.5px solid #deddd8">
+                                <img src="{{product.image3}}" alt="">
+                            </a>
+                        </div>
+                        <div class="product__details__slider__content" style="box-shadow: 0px 10px 10px rgb(99 98 98 / 22%)">
+                            <div class="product__details__pic__slider owl-carousel">
+                                <img data-hash="product-1" class="product__big__img" src="{{product.image1}}" alt="">
+                                <img data-hash="product-2" class="product__big__img" src="{{product.image2}}" alt="">
+                                <img data-hash="product-3" class="product__big__img" src="{{product.image3}}" alt="">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="product__details__text">
+                        <h4 class="brand-p-details">{{product.brand}} </span></h4>
+                        <h3>{{product.product_name}} </span></h3>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <span>( {{product.id}} reviews )</span>
+                        </div>
+                        <hr>
+                        <div class="product__details__price">₹{{product.sell_price}}<del style="font-size: 18px;margin-top:4px;}">₹{{product.og_price}}</del><div class="discount-product" style="font-size: 16px; margin-top: 4px;color:#ff905a;font-weight: 700;">({{product.discount}}% OFF)</div></div>
+                        <h4 class="pdp-product-description-title">Product Details&nbsp;&nbsp;<span class="fa fa-bars"></span></h4>
+                        <p>{{product.product_description}}</p>
+                        <div class="product__details__button">
+                            <form id="product_post" action="/additem-to-cart" method="post">
+                                {% csrf_token %}
+                                <div class="quantity">
+                                    <span>Quantity:</span>
+                                    <div class="pro-qty" style="border: 1px solid black;">
+                                        <input type="text" name="quantityvalue" value=1>
+                                    </div>
+                                </div>
+                                    <input type="hidden" name="prodid" value={{product.id}} />
+                                    <a  href="#" onclick="event.preventDefault(); document.getElementById('product_post').submit();" class="cart-btn">
+                                    <span class="icon_bag_alt"></span> Add to cart</a>
+                            </form>
+                            <ul>
+                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            </ul>
+                        </div>
+                        <div class="product__details__widget">
+                            <ul>
+                                {% comment %} <li>
+                                    <span>Availability:</span>
+                                    <div class="stock__checkbox">
+                                        <label for="stockin">
+                                            In Stock
+                                            <input type="checkbox" id="stockin">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Available color:</span>
+                                    <div class="color__checkbox">
+                                        <label for="green">
+                                            <input type="radio" name="color__radio" id="green" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label for="black">
+                                            <input type="radio" name="color__radio" id="black">
+                                            <span class="checkmark black-bg"></span>
+                                        </label>
+                                        <label for="grey">
+                                            <input type="radio" name="color__radio" id="grey">
+                                            <span class="checkmark grey-bg"></span>
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>Available size:</span>
+                                    <div class="size__btn">
+                                        <label for="xs-btn" class="active">
+                                            <input type="radio" id="xs-btn">
+                                            xs
+                                        </label>
+                                        <label for="s-btn">
+                                            <input type="radio" id="s-btn">
+                                            s
+                                        </label>
+                                        <label for="m-btn">
+                                            <input type="radio" id="m-btn">
+                                            m
+                                        </label>
+                                        <label for="l-btn">
+                                            <input type="radio" id="l-btn">
+                                            l
+                                        </label>
+                                    </div>
+                                </li> {% endcomment %}
+                                <li>
+                                    <span>Delivery:</span>
+                                    <p>{{product.delivery}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="product__details__tab">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Description</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Specification</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                                <h6>Description</h6>
+                                <p>Eyewear consists of items and accessories worn on or over the eyes, for fashion or adornment, protection against the environment, and to improve or enhance visual acuity.Eyeglasses are the most common form of eyewear used to correct or improve many types of vision problems. They are a frame that holds two pieces of glass or plastic, which have been ground into lenses to correct refractive errors.</p>
+                                <p>Glasses, also known as eyeglasses or spectacles, are vision eyewear with lenses (clear or tinted) mounted in a frame that holds them in front of a person's eyes, typically utilizing a bridge over the nose and hinged arms (known as temples or temple pieces) that rest over the ears.</p>
+                            </div>
+                            <div class="tab-pane" id="tabs-2" role="tabpanel">
+                                <h6>Specification</h6>
+                                <p>Glasses are frames bearing lenses worn in front of the eyes for vision correction. Frames are commonly made from metal or plastic, and lenses from glass or a plastic like polycarbonate. </p>
+                                <p>Goggles are a form of protective eyewear that usually enclose or protect the eye socket area to prevent particulates, water, or chemicals from coming into contact with the eyes. They are often worn when using power tools such as drills or chainsaws, to prevent flying debris from damaging the eyes.</p>
+                            </div>
+                            <div class="tab-pane" id="tabs-3" role="tabpanel">
+                                <h6>Reviews</h6>
+                                <p style="text-align: center;">500 Customer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="related__title">
+                        <h5>RELATED PRODUCTS</h5>
+                    </div>
+                </div>
+                
+                {% if related_p %}
+                    {% for related in related_p %}
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{related.image1}}">
+                                    <div class="label new">Related</div>
+                                    <ul class="product__hover">
+                                        <li><a href="{{related.image1}}" class="image-popup"><span class="arrow_expand"></span></a></li>
+                                        <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6 style="font-size:15px;font-weight: 600;line-height: 1.5;">{{related.brand}}</h6>
+                                    <h6 class="product-product"><a href="product/{{product.id}}">{{related.product_name}} </a></h6>
+                                    <div class="product__price">₹{{related.sell_price}} <del>₹{{related.og_price}}</del><div class="discount-product">({{related.discount}}% OFF)</div></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+    <!-- Product Details Section End -->
+<!-- Breadcrumb End -->
+    
+{% endblock body %}
+    
+    

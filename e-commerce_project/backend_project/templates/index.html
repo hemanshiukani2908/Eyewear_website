@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+<!-- Categories Section Begin -->
+<section class="categories">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-6 p-0">
+          <div id="header-carousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item" style="height: 640px;">
+                    <img class="img-fluid" src="static/img/categories/category12.jpg" alt="Image" style="width: 100%;height:100%;padding-right: 10px;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center"style="margin-bottom:2rem!important">
+                        {% comment %} <div class="p-3" style="max-width: 700px;">
+                            <a href="/" class="btn btn-light py-2 px-3">Shop Now</a>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+                <div class="carousel-item active" style="height: 640px;">
+                    <img class="img-fluid" src="static/img/categories/category11.jpg" alt="Image"style="width: 100%;height:100%;padding-right: 10px;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center" style="margin-bottom:15rem!important">
+                        {% comment %} <div class="p-3" style="max-width: 700px;">
+                            <a href="/" class="btn btn-light py-2 px-3">Shop Now</a>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+                <div class="carousel-item" style="height: 640px;">
+                  <img class="img-fluid" src="static/img/categories/category13.png" alt="Image" style="width: 100%;height:100%;padding-right: 10px;">
+                  <div class="carousel-caption d-flex flex-column align-items-center justify-content-center" style="margin-bottom:2rem!important">
+                      {% comment %} <div class="p-3" style="max-width: 700px;">
+                          <a href="/" class="btn btn-light py-2 px-3">Shop Now</a>
+                      </div> {% endcomment %}
+                  </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+                <div class="btn" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-prev-icon mb-n2"></span>
+                </div>
+            </a>
+            <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+                <div class="btn" style="width: 45px; height: 45px;">
+                    <span class="carousel-control-next-icon mb-n2"></span>
+                </div>
+            </a>
+        </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+              <div class="categories__item set-bg" data-setbg="static/img/categories/category-2.png">
+                <div class="categories__text">
+                  <h4>Men’s glasses</h4>
+                  <p>358 items</p>
+                  <a href="product?category=Men&">Shop now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+              <div class="categories__item set-bg" data-setbg="static/img/categories/category-3.png">
+                <div class="categories__text">
+                  <h4>Kid’s glasses</h4>
+                  <p>273 items</p>
+                  <a href="product?category=Kid&">Shop now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+              <div class="categories__item set-bg" data-setbg="static/img/categories/category-4.jpeg">
+                <div class="categories__text">
+                  <h4>Woman's glasses</h4>
+                  <p>159 items</p>
+                  <a href="product?category=Women&">Shop now</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 p-0">
+              <div class="categories__item set-bg" data-setbg="static/img/categories/category5.jpg">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- Categories Section End -->
+
+<!-- Product Section Begin -->
+<section class="product spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-4">
+        <div class="section-title">
+          <h4>New product</h4>
+        </div>
+      </div>
+      <div class="col-lg-8 col-md-8">
+        <ul class="filter__controls">
+          <li class="active" data-filter="*">All</li>
+          <li data-filter=".women">Women’s</li>
+          <li data-filter=".men">Men’s</li>
+          <li data-filter=".kid">Kid’s</li>
+        </ul>
+      </div>
+    </div>
+    {% comment %} <div class="row property__gallery">
+      {% for product in products%}
+      <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+        <div class="product__item">
+          <div class="product__item__pic set-bg" data-setbg="{{product.image1.url}}">
+            <div class="label new">New</div>
+            <ul class="product__hover">
+              <li>
+                <a href="{{product.image1.url}}" class="image-popup"><span class="arrow_expand"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon_heart_alt"></span></a>
+              </li>
+              <li>
+                <a href="#"><span class="icon_bag_alt"></span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="product__item__text">
+            <div class="product-brand-name"> 
+              <h6 style="font-size:15px;font-weight: 600;line-height: 1.5;">{{product.brand}}</h6>
+              <h6 class="product-product"><a href="#">{{product.product_name}} </a></h6>
+            </div>
+            <div class="product__price">₹{{product.sell_price}} <del>₹{{product.og_price}}</del><div class="discount-product">({{product.discount}}% OFF)</div></div>
+            
+          </div>
+        </div>
+      </div>
+      {% endfor%}
+    </div> {% endcomment %}
+  </div>
+</section>
+<!-- Product Section End -->
+
+{% endblock body %}
+    
+    
